@@ -7,5 +7,9 @@ from util.routines import *
 class Bot(BotCommandAgent):
     # This function runs every in-game tick (every time the game updates anything)
     def run(self):
-        # set_intent tells the bot what it's trying to do
-        self.set_intent(drive(500))
+        if (self.intent is not None):
+            return
+        if self.kickoff_flag:
+            self.set_intent(kickoff())
+            return
+        self.set_intent(short_shot(self.foe_goal.location))
