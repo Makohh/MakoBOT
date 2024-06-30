@@ -3,6 +3,15 @@ from util.objects import BotCommandAgent
 
 # This file holds all of the mechanical tasks, called "routines", that the bot can do
 
+class jumper():
+    def run(self, agent):
+        print('i want to jump', int(agent.time), int(agent.time % 5))
+        
+        if agent.time % 5 == 0:
+            agent.controller.jump = True
+
+        
+
 class Routine():
     def run(self, agent: BotCommandAgent) -> None:
         pass
